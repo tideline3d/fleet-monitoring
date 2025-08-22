@@ -87,7 +87,7 @@ affinity: {}
 # Persistent storage configuration
 persistence:
   enabled: true
-  size: 4Gi
+  size: 2Gi
   storageClass: "longhorn"
   accessMode: ReadWriteOnce
   # Path where AdGuard stores its data (work directory contains config, stats, and cache)
