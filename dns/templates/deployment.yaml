@@ -63,16 +63,13 @@ spec:
             periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if .Values.persistence.enabled }}
           volumeMounts:
-            {{- if .Values.persistence.enabled }}
             - name: data
               mountPath: /opt/adguardhome/work
             - name: config
               mountPath: /opt/adguardhome/conf
-            {{- end }}
-          env:
-            - name: AGH_CONFIG
-              value: /opt/adguardhome/conf/AdGuardHome.yaml
+          {{- end }}
       volumes:
         {{- if .Values.persistence.enabled }}
         - name: data
