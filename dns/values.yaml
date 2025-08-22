@@ -83,12 +83,6 @@ tolerations: []
 
 affinity: {}
 
-persistence:
-  enabled: false
-  storageClass: ""
-  accessMode: ReadWriteOnce
-  size: 1Gi
-  # existingClaim: ""
 
 # AdGuard Home specific configuration
 config:
