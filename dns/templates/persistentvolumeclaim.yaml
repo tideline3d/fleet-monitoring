@@ -1,0 +1,17 @@
+{{- if and .Values.persistence.enabled (not .Values.persistence.useStatefulSet) }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "adguard-home.fullname" . }}-data
+  labels:
+    {{- include "adguard-home.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size }}
+  {{- if .Values.persistence.storageClass }}
+  storageClassName: {{ .Values.persistence.storageClass }}
+  {{- end }}
+{{- end }}

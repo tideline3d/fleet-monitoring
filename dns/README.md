@@ -92,9 +92,11 @@ The command removes all the Kubernetes components associated with the chart and 
 | Name                        | Description                                                | Value              |
 | --------------------------- | ---------------------------------------------------------- | ------------------ |
 | `persistence.enabled`       | Enable persistence using Persistent Volume Claims         | `true`             |
-| `persistence.storageClass`  | Persistent Volume storage class                            | `""`               |
+| `persistence.storageClass`  | Persistent Volume storage class                            | `longhorn`         |
 | `persistence.accessMode`    | Persistent Volume access mode                              | `ReadWriteOnce`    |
-| `persistence.size`          | Persistent Volume size                                     | `1Gi`              |
+| `persistence.size`          | Persistent Volume size                                     | `2Gi`              |
+| `persistence.mountPath`     | Path where AdGuard stores its data                         | `/opt/adguardhome/work` |
+| `persistence.useStatefulSet`| Use StatefulSet for persistent storage (recommended for multiple replicas) | `true` |
 
 ### AdGuard Home Configuration parameters
 

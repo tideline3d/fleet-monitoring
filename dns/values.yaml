@@ -84,6 +84,18 @@ tolerations: []
 affinity: {}
 
 
+# Persistent storage configuration
+persistence:
+  enabled: true
+  size: 2Gi
+  storageClass: "longhorn"
+  accessMode: ReadWriteOnce
+  # Path where AdGuard stores its data (work directory contains config, stats, and cache)
+  mountPath: /opt/adguardhome/work
+  # Use StatefulSet for persistent storage (recommended for multiple replicas)
+  # If false, uses Deployment with shared PVC (only works with replicaCount: 1)
+  useStatefulSet: true
+
 # AdGuard Home specific configuration
 config:
   # Initial admin user (will be created on first run)
