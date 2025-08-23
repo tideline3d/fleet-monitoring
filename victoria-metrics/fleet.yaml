@@ -2,7 +2,7 @@ defaultNamespace: victoria-metrics
 helm:
   releaseName: victoria-metrics
   repo: https://victoriametrics.github.io/helm-charts/
-  chart: vm/victoria-metrics-single 
+  chart: victoria-metrics-single 
   version: 0.24.3
   values:
     file: values.yaml
